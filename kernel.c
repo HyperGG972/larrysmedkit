@@ -7,8 +7,8 @@ void kernel_main(void) {
 		vga_buffer[i] = 0x0F20;
 	}
 
-	const char* message = "Welcome to Larry's Med Kit v0.0 - Still in bare metal"
-	for (int i = 0; message[i] != "\0"; i++) {
+	const char* message = "Welcome to Larry's Med Kit v0.2 - Still in bare metal";
+	for (int i = 0; message[i] != '\0'; i++) {
 
 	    vga_buffer[i] = (0x0F << 8) | message[i];
 
