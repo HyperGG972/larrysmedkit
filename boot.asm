@@ -13,19 +13,19 @@ align 4
 
 section .text
 global _start
-extern kernel_main      ; This tells the assembler that 'kernel_main' exists in another file (C)
+extern kernel_main      
 
 _start:
-    cli                 ; Disable hardware interrupts
-    mov esp, stack_top  ; Set up a stack pointer pointer for C variables
-    call kernel_main    ; JUMP DIRECTLY INTO YOUR C CODE!
+    cli                 
+    mov esp, stack_top  
+    call kernel_main    
     
 .hang:
-    hlt                 ; Halt the CPU if C code ever finishes executing
+    hlt                 
     jmp .hang
 
 section .bss
 align 16
 stack_bottom:
-resb 16384              ; Reserve 16KB of RAM space for the C call stack
+resb 16384              
 stack_top:
